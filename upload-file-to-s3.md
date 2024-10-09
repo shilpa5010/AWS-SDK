@@ -13,6 +13,7 @@ npm install @aws-sdk/client-s3
 
 Example Code
 Here’s a simple script that uploads a file to an S3 bucket:
+
         // Import the necessary AWS SDK clients and commands
         const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
         const fs = require("fs");

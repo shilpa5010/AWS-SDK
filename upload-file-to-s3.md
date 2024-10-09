@@ -1,4 +1,4 @@
-example with javascript in aws sdk
+### Example with javascript in aws sdk
 
 ### Prerequisites
     Node.js installed: Ensure you have Node.js installed on your machine.

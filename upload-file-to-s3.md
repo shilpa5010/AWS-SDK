@@ -13,41 +13,41 @@ npm install @aws-sdk/client-s3
 
 Example Code
 Here’s a simple script that uploads a file to an S3 bucket:
-// Import the necessary AWS SDK clients and commands
-const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
-const fs = require("fs");
-const path = require("path");
-
-// Create an S3 client
-const s3Client = new S3Client({ region: "us-west-2" }); // Change region as needed
-
-// Define the parameters for the upload
-const bucketName = "your-bucket-name"; // Replace with your bucket name
-const fileName = "example.txt"; // Replace with your file name
-const filePath = path.join(__dirname, fileName); // Path to the file
-
-const uploadFile = async () => {
-  try {
-    // Read the file content
-    const fileContent = fs.readFileSync(filePath);
-
-    // Set up the upload parameters
-    const uploadParams = {
-      Bucket: bucketName,
-      Key: fileName,
-      Body: fileContent,
-    };
-
-    // Upload the file
-    const data = await s3Client.send(new PutObjectCommand(uploadParams));
-    console.log("File uploaded successfully. Location:", data.Location);
-  } catch (error) {
-    console.error("Error uploading file:", error);
-  }
-};
-
-// Call the upload function
-uploadFile();
+        // Import the necessary AWS SDK clients and commands
+        const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
+        const fs = require("fs");
+        const path = require("path");
+        
+        // Create an S3 client
+        const s3Client = new S3Client({ region: "us-west-2" }); // Change region as needed
+        
+        // Define the parameters for the upload
+        const bucketName = "your-bucket-name"; // Replace with your bucket name
+        const fileName = "example.txt"; // Replace with your file name
+        const filePath = path.join(__dirname, fileName); // Path to the file
+        
+        const uploadFile = async () => {
+          try {
+            // Read the file content
+            const fileContent = fs.readFileSync(filePath);
+        
+            // Set up the upload parameters
+            const uploadParams = {
+              Bucket: bucketName,
+              Key: fileName,
+              Body: fileContent,
+            };
+        
+            // Upload the file
+            const data = await s3Client.send(new PutObjectCommand(uploadParams));
+            console.log("File uploaded successfully. Location:", data.Location);
+          } catch (error) {
+            console.error("Error uploading file:", error);
+          }
+        };
+        
+        // Call the upload function
+        uploadFile();
 
 Running the Script
 

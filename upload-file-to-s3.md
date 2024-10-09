@@ -57,6 +57,8 @@ Running the Script
 Summary
 This script initializes an S3 client, reads a file from the local filesystem, and uploads it to an S3 bucket. Be sure to handle AWS permissions and bucket policies to allow uploads. You can expand this example to include more features like error handling, listing files, or deleting objects from the bucket.
 
+### Please make sure region should be same. Where the s3 bucket is created etc
+
 
 
     

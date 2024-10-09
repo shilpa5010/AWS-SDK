@@ -1,3 +1,5 @@
+example with javascript in aws sdk
+
 ### Prerequisites
     Node.js installed: Ensure you have Node.js installed on your machine.
     AWS account: You need an AWS account with S3 permissions.

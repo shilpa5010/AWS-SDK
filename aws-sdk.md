@@ -7,6 +7,7 @@ First, install the necessary packages via npm:
 
 3. Configuring AWS SDK v3
     You can set up the SDK as follows:
+   
         import { S3Client } from '@aws-sdk/client-s3';
         import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
         import { LambdaClient } from '@aws-sdk/client-lambda';

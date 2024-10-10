@@ -31,22 +31,27 @@ https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/getting-started
 
 Here's how to put an item into a DynamoDB table: 
 
-    import { PutCommand } from '@aws-sdk/lib-dynamodb';
-    const putItem = async (tableName, item) => {
-        const params = {
-            TableName: tableName,
-            Item: item,
+        const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
+        const { PutCommand } = require("@aws-sdk/lib-dynamodb");
+        const dynamoDBClient = new DynamoDBClient({ region: 'eu-west-2' });
+        // We can also create table through code exampel is in this page in SDK module - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/getting-started-step-1.html
+        
+        
+        const putItem = async (tableName, item) => {
+            const params = {
+                TableName: tableName,
+                Item: item,
+            };
+        
+            try {
+                await dynamoDBClient.send(new PutCommand(params));
+                console.log('Item added:', item);
+            } catch (err) {
+                console.error('Unable to add item:', err);
+            }
         };
-    
-        try {
-            await dynamoDBClient.send(new PutCommand(params));
-            console.log('Item added:', item);
-        } catch (err) {
-            console.error('Unable to add item:', err);
-        }
-    };
-    
-    // Usage
-    putItem('YourTableName', { id: '123', name: 'John Doe' });
-    
-
+        
+        // Usage
+        putItem('user', { uid: 123, name: 'John Doe' }); //Integers shouldnt be in ''
+            
+        

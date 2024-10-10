@@ -11,11 +11,12 @@ First, install the necessary packages via npm:
 3. Configuring AWS SDK v3
     You can set up the SDK as follows:
    
-        import { S3Client } from '@aws-sdk/client-s3';
-        import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-        import { LambdaClient } from '@aws-sdk/client-lambda';
-        import { SNSClient } from '@aws-sdk/client-sns';
-        
+        const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
+        const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
+        const { LambdaClient } = require("@aws-sdk/client-lambda");
+        const { SNSClient } = require("@aws-sdk/client-sns");
+        const fs = require("fs");
+   
         const s3Client = new S3Client({ region: 'YOUR_REGION' });
         const dynamoDBClient = new DynamoDBClient({ region: 'YOUR_REGION' });
         const lambdaClient = new LambdaClient({ region: 'YOUR_REGION' });
@@ -24,7 +25,7 @@ First, install the necessary packages via npm:
    Import is not working so i have changed in the code as below
 
    
-4. DynamoDB Example: Putting an Item
+5. DynamoDB Example: Putting an Item
 Example to create Table in DynamoDB.
 
 https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/getting-started-step-1.html

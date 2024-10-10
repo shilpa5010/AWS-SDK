@@ -53,5 +53,28 @@ Here's how to put an item into a DynamoDB table:
         
         // Usage
         putItem('user', { uid: 123, name: 'John Doe' }); //Integers shouldnt be in ''
+3. S3 Example: Uploading a File
+
+Here's how to upload a file to an S3 bucket:
+
+        const Lambda = new AWS.Lambda();
+        
+        const invokeLambda = (functionName, payload) => {
+            const params = {
+                FunctionName: functionName,
+                Payload: JSON.stringify(payload),
+            };
+        
+            Lambda.invoke(params, (err, data) => {
+                if (err) {
+                    return console.error('Error invoking lambda: ', err);
+                }
+                console.log('Lambda response:', JSON.parse(data.Payload));
+            });
+        };
+        
+        // Usage
+        invokeLambda('YourLambdaFunctionName', { key1: 'value1' });
+
             
         

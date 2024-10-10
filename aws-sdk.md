@@ -25,6 +25,9 @@ First, install the necessary packages via npm:
 
    
 5. DynamoDB Example: Putting an Item
+Example to create Table in DynamoDB.
+
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/getting-started-step-1.html
 
 Here's how to put an item into a DynamoDB table: 
 

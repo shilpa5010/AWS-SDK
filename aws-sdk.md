@@ -2,7 +2,9 @@
 ## Here are some examples using the AWS SDK for JavaScript version 3 (v3). This version utilizes a modular architecture, which allows you to import only the services you need.
 
 1. Setting Up the AWS SDK v3
+
 First, install the necessary packages via npm:
+
     npm install @aws-sdk/client-s3 @aws-sdk/client-dynamodb @aws-sdk/client-lambda @aws-sdk/client-sns
 
 3. Configuring AWS SDK v3
@@ -24,8 +26,8 @@ First, install the necessary packages via npm:
 5. DynamoDB Example: Putting an Item
 
 Here's how to put an item into a DynamoDB table: 
-    import { PutCommand } from '@aws-sdk/lib-dynamodb';
 
+    import { PutCommand } from '@aws-sdk/lib-dynamodb';
     const putItem = async (tableName, item) => {
         const params = {
             TableName: tableName,

@@ -7,15 +7,15 @@ First, install the necessary packages via npm:
 
 3. Configuring AWS SDK v3
     You can set up the SDK as follows:
-    import { S3Client } from '@aws-sdk/client-s3';
-    import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-    import { LambdaClient } from '@aws-sdk/client-lambda';
-    import { SNSClient } from '@aws-sdk/client-sns';
-    
-    const s3Client = new S3Client({ region: 'YOUR_REGION' });
-    const dynamoDBClient = new DynamoDBClient({ region: 'YOUR_REGION' });
-    const lambdaClient = new LambdaClient({ region: 'YOUR_REGION' });
-    const snsClient = new SNSClient({ region: 'YOUR_REGION' });
+        import { S3Client } from '@aws-sdk/client-s3';
+        import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+        import { LambdaClient } from '@aws-sdk/client-lambda';
+        import { SNSClient } from '@aws-sdk/client-sns';
+        
+        const s3Client = new S3Client({ region: 'YOUR_REGION' });
+        const dynamoDBClient = new DynamoDBClient({ region: 'YOUR_REGION' });
+        const lambdaClient = new LambdaClient({ region: 'YOUR_REGION' });
+        const snsClient = new SNSClient({ region: 'YOUR_REGION' });
 
    Import is not working so i have changed in the code as below
 

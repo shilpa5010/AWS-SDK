@@ -24,7 +24,7 @@ First, install the necessary packages via npm:
    Import is not working so i have changed in the code as below
 
    
-5. DynamoDB Example: Putting an Item
+4. DynamoDB Example: Putting an Item
 Example to create Table in DynamoDB.
 
 https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/getting-started-step-1.html
@@ -53,28 +53,54 @@ Here's how to put an item into a DynamoDB table:
         
         // Usage
         putItem('user', { uid: 123, name: 'John Doe' }); //Integers shouldnt be in ''
-3. S3 Example: Uploading a File
+5. Lambda Example: Invoking a Lambda Function
 
-Here's how to upload a file to an S3 bucket:
+To invoke a Lambda function:
 
-        const Lambda = new AWS.Lambda();
+           import { InvokeCommand } from '@aws-sdk/client-lambda';
         
-        const invokeLambda = (functionName, payload) => {
+        const invokeLambda = async (functionName, payload) => {
             const params = {
                 FunctionName: functionName,
-                Payload: JSON.stringify(payload),
+                Payload: Buffer.from(JSON.stringify(payload)),
             };
         
-            Lambda.invoke(params, (err, data) => {
-                if (err) {
-                    return console.error('Error invoking lambda: ', err);
-                }
-                console.log('Lambda response:', JSON.parse(data.Payload));
-            });
+            try {
+                const data = await lambdaClient.send(new InvokeCommand(params));
+                console.log('Lambda response:', JSON.parse(Buffer.from(data.Payload).toString()));
+            } catch (err) {
+                console.error('Error invoking lambda:', err);
+            }
         };
         
         // Usage
         invokeLambda('YourLambdaFunctionName', { key1: 'value1' });
+
+6. SNS Example: Publishing a Message
+
+Here's how to publish a message to an SNS topic:        
+        
+        import { PublishCommand } from '@aws-sdk/client-sns';
+        
+        const publishMessage = async (topicArn, message) => {
+            const params = {
+                Message: message,
+                TopicArn: topicArn,
+            };
+        
+            try {
+                const data = await snsClient.send(new PublishCommand(params));
+                console.log(`Message sent to the topic ${topicArn}. MessageID: ${data.MessageId}`);
+            } catch (err) {
+                console.error('Error publishing message:', err);
+            }
+        };
+        
+        // Usage
+        publishMessage('arn:aws:sns:your-region:your-account-id:your-topic', 'Hello, SNS!');
+        
+### Conclusion        
+These examples demonstrate basic operations for S3, DynamoDB, Lambda, and SNS using AWS SDK for JavaScript version 3. Remember to replace placeholders with your actual AWS resource details. Let me know if you need more specific examples or additional services!
 
             
         

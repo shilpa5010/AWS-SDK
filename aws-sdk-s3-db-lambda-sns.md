@@ -22,7 +22,7 @@ First, install the necessary packages via npm:
         const lambdaClient = new LambdaClient({ region: 'YOUR_REGION' });
         const snsClient = new SNSClient({ region: 'YOUR_REGION' });
 
-   Import is not working so i have changed in the code as below
+   Import is not working so i have changed the code  to const rather than to import
 
    
 5. DynamoDB Example: Putting an Item
